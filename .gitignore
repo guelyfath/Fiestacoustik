@@ -1,0 +1,25 @@
+
+# Environnement virtuel
+
+myenv/
+.venv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+db.sqlite3
+/media/
+
+# Fichiers sensibles
+.env
+
+# VS Code
+.vscode/
+
+# Système
+.DS_Store
+Thumbs.db
