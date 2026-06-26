@@ -1,0 +1,41 @@
+/* =========================================
+   RESET CSS (base propre)
+   ========================================= */
+
+/* Empêche les problèmes de taille de box */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Scroll plus fluide */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Base du site */
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-color: black;
+    color: #111827;
+}
+
+/* Empêche les images de dépasser */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Supprime les styles par défaut des liens */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Uniformise les inputs */
+button,
+input {
+    font: inherit;
+}

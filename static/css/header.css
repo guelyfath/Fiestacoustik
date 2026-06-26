@@ -1,0 +1,139 @@
+/* Header principal */
+.header-site {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(5, 5, 5, 0.86);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Container interne du header */
+.header-container {
+    max-width: 1350px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 30px;
+
+    padding: 22px 6%;
+}
+
+/* Logo */
+.logo-header {
+    justify-self: start;
+}
+
+.logo-size {
+    width: 150px;
+    display: block;
+}
+
+/* Navigation */
+.header-nav {
+    justify-self: center;
+
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-element {
+    position: relative;
+
+    text-decoration: none;
+    color: #F8F5EF;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    transition: color 0.3s ease;
+}
+
+.nav-element:hover {
+    color: #FF9800;
+}
+
+.nav-element::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #FF9800;
+    border-radius: 999px;
+
+    transition: width 0.3s ease;
+}
+
+.nav-element:hover::after {
+    width: 100%;
+}
+
+/* CTA */
+.header-cta {
+    justify-self: end;
+}
+
+.btn-cta-header {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(135deg, #FF9800, #FFB21A);
+    color: #050505;
+
+    padding: 12px 22px;
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-cta-header:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .header-container {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "logo cta"
+            "nav nav";
+        row-gap: 18px;
+    }
+
+    .logo-header {
+        grid-area: logo;
+    }
+
+    .header-cta {
+        grid-area: cta;
+    }
+
+    .header-nav {
+        grid-area: nav;
+        justify-self: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .nav-element {
+        font-size: 12px;
+    }
+
+    .logo-size {
+        width: 130px;
+    }
+}

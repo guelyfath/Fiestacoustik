@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Accueil{% endblock %}</title>
+
+    {% block extra_head %}
+    {% endblock %} 
+
+</head>
+<body>
+
+        <header class="header-site">
+            <div class="header-container">
+                <div class="logo-header">
+                    <img src="{% static 'images/logo.png'%}" alt="Fiestacoustik" class="logo-size">
+                </div>
+
+                <nav class="header-nav">
+                    <a href="#accueil" class="nav-element">Accueil</a>
+                    <a href="#animations" class="nav-element">Animations</a>
+                    <a href="#videos" class="nav-element">Vidéos</a>
+                    <a href="#avis" class="nav-element">Avis</a>
+                    <a href="#contact" class="nav-element">Contact</a>
+                </nav>
+
+                <div class="header-cta">
+                    <a href="#contact" class="btn-cta-header">Demander un devis</a>
+                </div>
+            </div>
+        </header>
+
+    {% block content %} {% endblock %}
+
+</body>
+</html>

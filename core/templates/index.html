@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_head %} 
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hero.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+{% endblock %}
+
+{% block content %}
+
+    <main>
+
+        <section class="section-hero">
+
+            <div class="hero-content">
+                <h1 class="big-title">ANNIMATION MUSICALE <br> ACOUSTIQUE</h1>
+                <h2 class="subtitle">POUR VOS EVENEMENTS</h2>
+                <span>Guitare, chant et percussion pour des moments uniques. <br>mariages, fêtes privées, évenemets publics ou professionnnels.</span>
+            </div>
+
+            <div class="hero-action">
+
+                <a href="" class="btn-devis">
+                    <span>Demander un devis</span>
+                    <span class="btn-devis-icon">↗</span>
+                </a>
+
+                <a  href="" class="btn-video">
+                    <span>Voir les vidéos</span>
+                    <span class="btn-video-icon"></span>
+                </a>
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    <i class="fea-ico" data-lucide="music"></i>
+                    <span class="fea-text"><strong>+180</strong><br>chansons</span>
+                </div>
+
+                <div class="feature">
+                    <i class="fea-ico" data-lucide="users"></i>
+                    <span class="fea-text">Jusqu’à<br><strong>400 personnes</strong></span>
+                </div>
+
+                <div class="feature">
+                    <i class="fea-ico" data-lucide="volume-2"></i>
+                    <span class="fea-text">Intérieur<br>& extérieur</span>
+                </div>
+
+                <div class="feature">
+                    <i class="fea-ico" data-lucide="star"></i>
+                    <span class="fea-text">Ambiance<br>chaleureuse</span>
+                </div>
+
+            </div>
+
+            <!-- Script pour génerer les icones lucide -->
+            <script src="https://unpkg.com/lucide@latest"></script>
+            <script>
+                lucide.createIcons();
+            </script>
+
+        </section>
+
+        <section id="animations" class="event-section" >
+            <!-- <div class="title-event">
+                <span>POUR QUELS EVENEMENTS ?</span>
+            </div> -->
+
+            <div class="event-zone">
+
+                <div class="event-card">
+                    <i class="fa-solid fa-ring event-icon" ></i>
+                    <h3>Mariages</h3>
+                    <p>Une ambiance élégante et romantique pour accompagner votre plus beau jour.</p>
+                </div>
+                
+                <div class="event-card">
+                    <i class="fa-solid fa-cake-candles event-icon"></i>
+                    <h3>Anniverssaires</h3>
+                    <p>De 7 à 77 ans, des chansons pour rassembler toutes les générations.</p>
+                </div>
+            
+                <div class="event-card">
+                    <i class="fa-solid fa-explosion event-icon"></i>
+                    <h3>Comités des fêtes</h3>
+                    <p>Des prestations conviviales pour animer vos événements communaux.</p>
+                </div>
+
+                <div class="event-card">
+                    <i class="fa-solid fa-champagne-glasses event-icon"></i>
+                    <h3>Restaurants & bars</h3>
+                    <p>Un fond musical chaleureux pour vos client.</p>
+                </div>
+
+                <div class="event-card">
+                    <i class="fa-solid fa-futbol event-icon"></i>
+                    <h3>Evenemnts sportifs</h3>
+                    <p>Avant, pendant ou après votre événement sportif.</p>
+                </div>
+
+                <div class="event-card">
+                    <i class="fa-solid fa-music event-icon"></i>
+                    <h3>Soirées privées</h3>
+                    <p>Fêtes entre amis, soirées d’entreprise, baptêmes, départs à la retraite...</p>
+                </div> 
+
+            </div>
+
+        </section>
+
+        <section class="hero-music">
+
+            <div class="hero-music__decor" aria-hidden="true"></div>
+
+            <div class="hero-music__media">
+                <span class="hero-music__tape"></span>
+
+                <img src="{% static 'images/art.png'%}" alt="Musicien jouant de la guitare sur scène" class="hero-music__image">
+            </div>
+
+            <div class="hero-music__content">
+                <p class="hero-music__eyebrow">Une prestation complète</p>
+
+                <h1>
+                Du matériel pro pour<br>
+                une ambiance maîtrisée
+                </h1>
+
+                <ul class="hero-music__list">
+                <li>Sonorisation de qualité pour l’intérieur et l’extérieur</li>
+                <li>Répertoire large et adaptable à votre public</li>
+                <li>Prestation autonome : matériel son et lumières</li>
+                <li>Jusqu’à 400 personnes en toute sérénité</li>
+                <li>Volume maîtrisé, ambiance garantie !</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section class="testimonials-section" id="avis">
+
+            <div class="testimonials-container">
+
+                <!-- Flèche gauche -->
+                <button class="testimonial-arrow testimonial-arrow-left" aria-label="Avis précédent">
+                    &#8249;
+                </button>
+
+                <!-- Bloc titre -->
+                <div class="testimonials-intro">
+                    <span class="section-label">Avis clients</span>
+
+                    <h2>Ils ont aimé<br>l’expérience</h2>
+
+                </div>
+
+                <!-- Cartes avis -->
+                <div class="testimonials-grid">
+
+                    <article class="testimonial-card">
+                        <div class="quote-icon">“</div>
+
+                        <p class="testimonial-text">“Une ambiance parfaite du début à la fin, nos invités ont adoré !”</p>
+
+                        <div class="testimonial-author">
+                            <strong>Marie & Julien</strong>
+                            <span>Mariage</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Flèche droite -->
+                <button class="testimonial-arrow testimonial-arrow-right" aria-label="Avis suivant">
+                    &#8250;
+                </button>
+
+                <!-- Pagination -->
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+            </div>
+    
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div class="contact-overlay"></div>
+
+            <div class="contact-container">
+
+                <!-- Bloc texte à gauche -->
+                <div class="contact-info">
+                    <span class="section-label">Parlons de votre projet</span>
+
+                    <h2>Un événement<br>en préparation ?</h2>
+
+                    <p>
+                        Remplissez le formulaire, je vous réponds
+                        rapidement pour en discuter.
+                    </p>
+
+                    <ul class="contact-details">
+                        <li>
+                            <span class="contact-icon">☎</span>
+                            <a href="tel:0612345678">06 12 34 56 78</a>
+                        </li>
+
+                        <li>
+                            <span class="contact-icon">✉</span>
+                            <a href="mailto:contact@fiestacoustik.fr">contact@fiestacoustik.fr</a>
+                        </li>
+
+                        <li>
+                            <span class="contact-icon">⌖</span>
+                            <span>Basé en Occitanie - Déplacements possibles</span>
+                        </li>
+                    </ul>
+
+                    <div class="contact-socials">
+                        <a href="#" aria-label="Instagram">◎</a>
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="YouTube">▶</a>
+                    </div>
+                </div>
+
+                <!-- Formulaire à droite -->
+                <form class="contact-form" action="#" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Nom complet">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Téléphone">
+                        </div>
+
+                        <div class="form-group">
+                            <select name="event_type">
+                                <option value="">Type d’événement</option>
+                                <option value="mariage">Mariage</option>
+                                <option value="anniversaire">Anniversaire</option>
+                                <option value="comite">Comité des fêtes</option>
+                                <option value="restaurant">Restaurant / bar</option>
+                                <option value="soiree-privee">Soirée privée</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="date" name="event_date">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="location" placeholder="Lieu de l’événement">
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <textarea name="message" placeholder="Votre message"></textarea>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn-submit">
+                            Envoyer ma demande
+                            <span>➤</span>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+
+    </main>
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+{% endblock %}
+

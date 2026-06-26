@@ -1,0 +1,170 @@
+/* Hero action */
+
+.hero-action {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
+/* Bouton devis */
+.btn-devis {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 12px 10px 26px;
+    border-radius: 999px;
+
+    background: #ff9900;
+    color: #111;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+
+    box-shadow:
+        inset 0 -3px 0 rgba(0, 0, 0, 0.15),
+        0 8px 22px rgba(255, 153, 0, 0.25);
+
+    transition: 0.25s ease;
+}
+
+.btn-devis-icon {
+    font-size: 1rem;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+.btn-devis:hover {
+    background: #ffad22;
+    transform: translateY(-2px);
+}
+
+
+
+/* Bouton vidéo */
+.btn-video {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 12px 10px 26px;
+    border: 2px solid rgba(255, 153, 0, 0.55);
+    border-radius: 999px;
+
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow:
+        inset 0 0 12px rgba(255, 153, 0, 0.18),
+        0 0 14px rgba(0, 0, 0, 0.35);
+
+    transition: 0.25s ease;
+}
+
+.btn-video-icon {
+    width: 25px;
+    height: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.08);
+    position: relative;
+}
+
+.btn-video-icon::before {
+    content: "";
+    width: 0;
+    height: 0;
+
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 11px solid #fff;
+
+    margin-left: 3px;
+}
+
+.btn-video:hover {
+    border-color: #ff9900;
+    background: rgba(255, 153, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.btn-video:hover .btn-video-icon {
+    border-color: #ff9900;
+}
+
+/* Responsive buttons */
+
+/* Responsive boutons */
+@media (max-width: 768px) {
+    .btn-devis,
+    .btn-video {
+        padding: 9px 12px 9px 22px;
+        gap: 8px;
+
+        font-size: 11px;
+        letter-spacing: 0.035em;
+    }
+
+    .btn-video-icon {
+        width: 23px;
+        height: 23px;
+    }
+
+    .btn-video-icon::before {
+        border-top-width: 6px;
+        border-bottom-width: 6px;
+        border-left-width: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-devis,
+    .btn-video {
+        width: 100%;
+        justify-content: center;
+
+        padding: 11px 14px;
+        gap: 8px;
+
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .btn-devis {
+        padding-left: 14px;
+    }
+
+    .btn-video {
+        padding-left: 14px;
+    }
+
+    .btn-devis:hover,
+    .btn-video:hover {
+        transform: none;
+    }
+
+    .btn-video-icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+    }
+
+    .btn-devis-icon {
+        flex-shrink: 0;
+    }
+}
+
