@@ -5,35 +5,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Accueil{% endblock %}</title>
+    <title>{% block title %}Fiestacoustik{% endblock %}</title>
 
     {% block extra_head %}
-    {% endblock %} 
-
+    {% endblock %}
 </head>
 <body>
+    <header class="header-site">
+        <div class="header-container">
+            <div class="logo-header">
+                <a href="#accueil" aria-label="Accueil">
+                    <img src="{% static 'images/logo.png' %}" alt="Fiestacoustik" class="logo-size">
+                </a>
+            </div>
 
-        <header class="header-site">
-            <div class="header-container">
-                <div class="logo-header">
-                    <img src="{% static 'images/logo.png'%}" alt="Fiestacoustik" class="logo-size">
-                </div>
+            {# Sur mobile, ce bouton ouvre/ferme le panneau de navigation via static/js/main.js. #}
+            <button class="mobile-menu-toggle" type="button" aria-controls="primaryMenu" aria-expanded="false">
+                <span class="mobile-menu-toggle__bar"></span>
+                <span class="mobile-menu-toggle__bar"></span>
+                <span class="mobile-menu-toggle__bar"></span>
+                <span class="sr-only">Ouvrir le menu</span>
+            </button>
 
-                <nav class="header-nav">
+            {# Navigation + CTA restent ensemble pour pouvoir les cacher sur mobile. #}
+            <div id="primaryMenu" class="header-menu">
+                <nav class="header-nav" aria-label="Navigation principale">
                     <a href="#accueil" class="nav-element">Accueil</a>
                     <a href="#animations" class="nav-element">Animations</a>
-                    <a href="#videos" class="nav-element">Vidéos</a>
+                    <a href="#videos" class="nav-element">Videos</a>
                     <a href="#avis" class="nav-element">Avis</a>
                     <a href="#contact" class="nav-element">Contact</a>
                 </nav>
 
                 <div class="header-cta">
-                    <a href="#contact" class="btn-cta-header">Demander un devis</a>
+                    <a href="#contact" class="btn-cta-header">
+                        Demander un devis
+                    </a>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-    {% block content %} {% endblock %}
+    {% block content %}{% endblock %}
 
+    {# Footer commun a toutes les pages du site. #}
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <div>
+                <strong>©Maguely</strong>
+                <p>Creation de sites web et experiences web sur mesure.</p>
+            </div>
+
+            <nav class="site-footer__nav" aria-label="Navigation footer">
+                <a href="#accueil">Accueil</a>
+                <a href="#animations">Animations</a>
+                <a href="#avis">Avis</a>
+                <a href="#videos">Videos</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </footer>
 </body>
 </html>

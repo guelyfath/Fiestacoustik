@@ -47,16 +47,6 @@
     max-width: 430px;
 }
 
-.section-label {
-    display: inline-block;
-    color: #FF9800;
-    font-size: 0.78rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 18px;
-}
-
 .contact-info h2 {
     color: white;
     font-size: clamp(2rem, 3.5vw, 3.2rem);
@@ -169,6 +159,28 @@
 
 .form-group {
     width: 100%;
+}
+
+.form-message {
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    border-radius: 6px;
+    color: white;
+    background: rgba(255, 152, 0, 0.18);
+    border: 1px solid rgba(255, 152, 0, 0.38);
+    font-size: 0.92rem;
+}
+
+.form-message--error,
+.errorlist {
+    color: #ffd6d6;
+}
+
+.errorlist {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.85rem;
 }
 
 .form-group input,

@@ -2,12 +2,11 @@
 
 {% load static %}
 
-{% block extra_head %} 
+{% block extra_head %}
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/hero.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
     <link rel="stylesheet" href="{% static 'css/button.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -15,287 +14,324 @@
 {% endblock %}
 
 {% block content %}
-
     <main>
-
-        <section class="section-hero">
-
+        {# Hero fixe : son texte n'est pas expose dans l'admin client. #}
+        <section id="accueil" class="section-hero">
             <div class="hero-content">
-                <h1 class="big-title">ANNIMATION MUSICALE <br> ACOUSTIQUE</h1>
+                <h1 class="big-title">ANIMATION MUSICALE ACOUSTIQUE</h1>
                 <h2 class="subtitle">POUR VOS EVENEMENTS</h2>
-                <span>Guitare, chant et percussion pour des moments uniques. <br>mariages, fêtes privées, évenemets publics ou professionnnels.</span>
+                <span>
+                    Guitare, chant et percussion pour des moments uniques.<br>
+                    Mariages, fetes privees, evenements publics ou professionnels.
+                </span>
             </div>
 
             <div class="hero-action">
-
-                <a href="" class="btn-devis">
+                <a href="#contact" class="btn-devis">
                     <span>Demander un devis</span>
-                    <span class="btn-devis-icon">↗</span>
+                    <span class="btn-devis-icon">&#8599;</span>
                 </a>
 
-                <a  href="" class="btn-video">
-                    <span>Voir les vidéos</span>
+                <a href="#videos" class="btn-video">
+                    <span>Voir les videos</span>
                     <span class="btn-video-icon"></span>
                 </a>
             </div>
 
             <div class="features">
-
-                <div class="feature">
-                    <i class="fea-ico" data-lucide="music"></i>
-                    <span class="fea-text"><strong>+180</strong><br>chansons</span>
-                </div>
-
-                <div class="feature">
-                    <i class="fea-ico" data-lucide="users"></i>
-                    <span class="fea-text">Jusqu’à<br><strong>400 personnes</strong></span>
-                </div>
-
-                <div class="feature">
-                    <i class="fea-ico" data-lucide="volume-2"></i>
-                    <span class="fea-text">Intérieur<br>& extérieur</span>
-                </div>
-
-                <div class="feature">
-                    <i class="fea-ico" data-lucide="star"></i>
-                    <span class="fea-text">Ambiance<br>chaleureuse</span>
-                </div>
-
+                {% for feature in features %}
+                    <div class="feature">
+                        <i class="fea-ico" data-lucide="{{ feature.icon_name }}"></i>
+                        <span class="fea-text"><strong>{{ feature.title }}</strong><br>{{ feature.text }}</span>
+                    </div>
+                {% empty %}
+                    <div class="feature">
+                        <i class="fea-ico" data-lucide="music"></i>
+                        <span class="fea-text"><strong>+180</strong><br>chansons</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fea-ico" data-lucide="users"></i>
+                        <span class="fea-text">Jusqu'a<br><strong>400 personnes</strong></span>
+                    </div>
+                    <div class="feature">
+                        <i class="fea-ico" data-lucide="volume-2"></i>
+                        <span class="fea-text">Interieur<br>&amp; exterieur</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fea-ico" data-lucide="star"></i>
+                        <span class="fea-text">Ambiance<br>chaleureuse</span>
+                    </div>
+                {% endfor %}
             </div>
-
-            <!-- Script pour génerer les icones lucide -->
-            <script src="https://unpkg.com/lucide@latest"></script>
-            <script>
-                lucide.createIcons();
-            </script>
-
         </section>
 
-        <section id="animations" class="event-section" >
-            <!-- <div class="title-event">
-                <span>POUR QUELS EVENEMENTS ?</span>
-            </div> -->
-
+        {# Types d'evenements fixes : ils ne sont pas exposes dans l'admin client. #}
+        <section id="animations" class="event-section">
             <div class="event-zone">
-
                 <div class="event-card">
-                    <i class="fa-solid fa-ring event-icon" ></i>
+                    <i class="fa-solid fa-ring event-icon"></i>
                     <h3>Mariages</h3>
-                    <p>Une ambiance élégante et romantique pour accompagner votre plus beau jour.</p>
+                    <p>Une ambiance elegante et romantique pour accompagner votre plus beau jour.</p>
                 </div>
-                
                 <div class="event-card">
                     <i class="fa-solid fa-cake-candles event-icon"></i>
-                    <h3>Anniverssaires</h3>
-                    <p>De 7 à 77 ans, des chansons pour rassembler toutes les générations.</p>
+                    <h3>Anniversaires</h3>
+                    <p>Des chansons pour rassembler toutes les generations.</p>
                 </div>
-            
                 <div class="event-card">
                     <i class="fa-solid fa-explosion event-icon"></i>
-                    <h3>Comités des fêtes</h3>
-                    <p>Des prestations conviviales pour animer vos événements communaux.</p>
+                    <h3>Comites des fetes</h3>
+                    <p>Des prestations conviviales pour animer vos evenements communaux.</p>
                 </div>
-
                 <div class="event-card">
                     <i class="fa-solid fa-champagne-glasses event-icon"></i>
-                    <h3>Restaurants & bars</h3>
-                    <p>Un fond musical chaleureux pour vos client.</p>
+                    <h3>Restaurants &amp; bars</h3>
+                    <p>Un fond musical chaleureux pour vos clients.</p>
                 </div>
-
                 <div class="event-card">
                     <i class="fa-solid fa-futbol event-icon"></i>
-                    <h3>Evenemnts sportifs</h3>
-                    <p>Avant, pendant ou après votre événement sportif.</p>
+                    <h3>Evenements sportifs</h3>
+                    <p>Avant, pendant ou apres votre evenement sportif.</p>
                 </div>
-
                 <div class="event-card">
                     <i class="fa-solid fa-music event-icon"></i>
-                    <h3>Soirées privées</h3>
-                    <p>Fêtes entre amis, soirées d’entreprise, baptêmes, départs à la retraite...</p>
-                </div> 
-
+                    <h3>Soirees privees</h3>
+                    <p>Fetes entre amis, soirees d'entreprise, baptemes, departs a la retraite...</p>
+                </div>
             </div>
-
         </section>
 
-        <section class="hero-music">
-
-            <div class="hero-music__decor" aria-hidden="true"></div>
-
-            <div class="hero-music__media">
-                <span class="hero-music__tape"></span>
-
-                <img src="{% static 'images/art.png'%}" alt="Musicien jouant de la guitare sur scène" class="hero-music__image">
-            </div>
-
-            <div class="hero-music__content">
-                <p class="hero-music__eyebrow">Une prestation complète</p>
-
-                <h1>
-                Du matériel pro pour<br>
-                une ambiance maîtrisée
-                </h1>
-
-                <ul class="hero-music__list">
-                <li>Sonorisation de qualité pour l’intérieur et l’extérieur</li>
-                <li>Répertoire large et adaptable à votre public</li>
-                <li>Prestation autonome : matériel son et lumières</li>
-                <li>Jusqu’à 400 personnes en toute sérénité</li>
-                <li>Volume maîtrisé, ambiance garantie !</li>
-                </ul>
-
-            </div>
-
-        </section>
-
+        {# Avis modifiables depuis l'admin via Testimonial. #}
         <section class="testimonials-section" id="avis">
-
             <div class="testimonials-container">
-
-                <!-- Flèche gauche -->
-                <button class="testimonial-arrow testimonial-arrow-left" aria-label="Avis précédent">
+                <button id="prevTestimonial" class="testimonial-arrow testimonial-arrow-left" type="button" aria-label="Avis precedent">
                     &#8249;
                 </button>
 
-                <!-- Bloc titre -->
                 <div class="testimonials-intro">
                     <span class="section-label">Avis clients</span>
-
-                    <h2>Ils ont aimé<br>l’expérience</h2>
-
+                    <h2>Ils ont aime<br>l'experience</h2>
                 </div>
 
-                <!-- Cartes avis -->
-                <div class="testimonials-grid">
-
-                    <article class="testimonial-card">
-                        <div class="quote-icon">“</div>
-
-                        <p class="testimonial-text">“Une ambiance parfaite du début à la fin, nos invités ont adoré !”</p>
-
-                        <div class="testimonial-author">
-                            <strong>Marie & Julien</strong>
-                            <span>Mariage</span>
-                        </div>
-                    </article>
-
+                <div id="testimonialsGrid" class="testimonials-grid">
+                    {% for testimonial in testimonials|slice:":3" %}
+                        <article class="testimonial-card">
+                            <div class="quote-icon">&ldquo;</div>
+                            <p class="testimonial-text">&ldquo;{{ testimonial.text }}&rdquo;</p>
+                            <div class="testimonial-author">
+                                <strong>{{ testimonial.author_name }}</strong>
+                                <span>{{ testimonial.event_label }}</span>
+                            </div>
+                        </article>
+                    {% empty %}
+                        <article class="testimonial-card">
+                            <div class="quote-icon">&ldquo;</div>
+                            <p class="testimonial-text">&ldquo;Une ambiance parfaite du debut a la fin, nos invites ont adore !&rdquo;</p>
+                            <div class="testimonial-author">
+                                <strong>Marie &amp; Julien</strong>
+                                <span>Mariage</span>
+                            </div>
+                        </article>
+                    {% endfor %}
                 </div>
 
-                <!-- Flèche droite -->
-                <button class="testimonial-arrow testimonial-arrow-right" aria-label="Avis suivant">
+                <button id="nextTestimonial" class="testimonial-arrow testimonial-arrow-right" type="button" aria-label="Avis suivant">
                     &#8250;
                 </button>
 
-                <!-- Pagination -->
-                <div class="testimonial-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-
+                <div id="testimonialDots" class="testimonial-dots"></div>
             </div>
-    
         </section>
 
+        {# Section videos : le client gere les cartes depuis l'admin VideoItem. #}
+        <section id="videos" class="video-section">
+            <div class="video-shell">
+                <div class="video-intro">
+                    <span class="section-label">En video</span>
+                    <h2>Decouvrez l'ambiance en live</h2>
+                    <a href="#videos" class="video-section__button">
+                        <span>Voir toutes les videos</span>
+                        <span class="video-section__button-icon"></span>
+                    </a>
+                </div>
+
+                <div class="video-grid">
+                    {% for video in videos %}
+                        <article class="video-card">
+                            <a class="video-card__media" href="{{ video.video_url|default:'#videos' }}" aria-label="Voir la video {{ video.title }}">
+                                {% if video.thumbnail %}
+                                    <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}">
+                                {% else %}
+                                    <img src="{% static 'images/hero.png' %}" alt="{{ video.title }}">
+                                {% endif %}
+                                <span class="video-card__play"></span>
+                            </a>
+                            <h3>{{ video.title }}</h3>
+                            {% if video.subtitle %}
+                                <p>{{ video.subtitle }}</p>
+                            {% endif %}
+                        </article>
+                    {% empty %}
+                        <article class="video-card">
+                            <a class="video-card__media" href="#videos" aria-label="Voir la video extrait live mariage">
+                                <img src="{% static 'images/hero.png' %}" alt="Extrait live mariage">
+                                <span class="video-card__play"></span>
+                            </a>
+                            <h3>Extrait live - Mariage</h3>
+                            <p>Ambiance romantique</p>
+                        </article>
+                        <article class="video-card">
+                            <a class="video-card__media" href="#videos" aria-label="Voir la video soiree privee">
+                                <img src="{% static 'images/art.png' %}" alt="Soiree privee">
+                                <span class="video-card__play"></span>
+                            </a>
+                            <h3>Soiree privee</h3>
+                            <p>Ambiance festive</p>
+                        </article>
+                        <article class="video-card">
+                            <a class="video-card__media" href="#videos" aria-label="Voir la video comite des fetes">
+                                <img src="{% static 'images/4.png' %}" alt="Comite des fetes">
+                                <span class="video-card__play"></span>
+                            </a>
+                            <h3>Comite des fetes</h3>
+                            <p>Ambiance conviviale</p>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        {# Section prestation fixe : elle n'est pas exposee dans l'admin client. #}
+        <section id="prestation" class="hero-music">
+            <div class="hero-music__media">
+                <span class="hero-music__tape"></span>
+                <img src="{% static 'images/art.png' %}" alt="Musicien jouant de la guitare sur scene" class="hero-music__image">
+            </div>
+
+            <div class="hero-music__content">
+                <p class="hero-music__eyebrow">Une prestation complete</p>
+
+                <h1>Du materiel pro pour une ambiance maitrisee</h1>
+
+                <ul class="hero-music__list">
+                    <li>Sonorisation de qualite pour l'interieur et l'exterieur</li>
+                    <li>Repertoire large et adaptable a votre public</li>
+                    <li>Prestation autonome : materiel son et lumieres</li>
+                    <li>Jusqu'a 400 personnes en toute serenite</li>
+                    <li>Volume maitrise, ambiance garantie !</li>
+                </ul>
+            </div>
+        </section>
+
+        {# Le formulaire cree une ContactRequest visible dans l'admin. #}
         <section class="contact-section" id="contact">
             <div class="contact-overlay"></div>
 
             <div class="contact-container">
-
-                <!-- Bloc texte à gauche -->
                 <div class="contact-info">
-                    <span class="section-label">Parlons de votre projet</span>
-
-                    <h2>Un événement<br>en préparation ?</h2>
-
-                    <p>
-                        Remplissez le formulaire, je vous réponds
-                        rapidement pour en discuter.
-                    </p>
+                    <span class="section-label">{{ site_settings.contact_eyebrow|default:"Parlons de votre projet" }}</span>
+                    <h2>{{ site_settings.contact_title|default:"Un evenement en preparation ?" }}</h2>
+                    <p>{{ site_settings.contact_text|default:"Remplissez le formulaire, je vous reponds rapidement pour en discuter." }}</p>
 
                     <ul class="contact-details">
-                        <li>
-                            <span class="contact-icon">☎</span>
-                            <a href="tel:0612345678">06 12 34 56 78</a>
-                        </li>
-
-                        <li>
-                            <span class="contact-icon">✉</span>
-                            <a href="mailto:contact@fiestacoustik.fr">contact@fiestacoustik.fr</a>
-                        </li>
-
-                        <li>
-                            <span class="contact-icon">⌖</span>
-                            <span>Basé en Occitanie - Déplacements possibles</span>
-                        </li>
+                        {% if site_settings.phone %}
+                            <li>
+                                <span class="contact-icon">&#9742;</span>
+                                <a href="tel:{{ site_settings.phone }}">{{ site_settings.phone }}</a>
+                            </li>
+                        {% endif %}
+                        {% if site_settings.email %}
+                            <li>
+                                <span class="contact-icon">&#9993;</span>
+                                <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a>
+                            </li>
+                        {% endif %}
+                        {% if site_settings.location %}
+                            <li>
+                                <span class="contact-icon">&#8982;</span>
+                                <span>{{ site_settings.location }}</span>
+                            </li>
+                        {% endif %}
                     </ul>
 
                     <div class="contact-socials">
-                        <a href="#" aria-label="Instagram">◎</a>
-                        <a href="#" aria-label="Facebook">f</a>
-                        <a href="#" aria-label="YouTube">▶</a>
+                        {% if site_settings.instagram_url %}
+                            <a href="{{ site_settings.instagram_url }}" aria-label="Instagram">IG</a>
+                        {% endif %}
+                        {% if site_settings.facebook_url %}
+                            <a href="{{ site_settings.facebook_url }}" aria-label="Facebook">f</a>
+                        {% endif %}
+                        {% if site_settings.youtube_url %}
+                            <a href="{{ site_settings.youtube_url }}" aria-label="YouTube">&#9654;</a>
+                        {% endif %}
                     </div>
                 </div>
 
-                <!-- Formulaire à droite -->
-                <form class="contact-form" action="#" method="post">
+                <form class="contact-form" action="#contact" method="post">
+                    {% csrf_token %}
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="form-message form-message--{{ message.tags }}">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if contact_form.non_field_errors %}
+                        <div class="form-message form-message--error">{{ contact_form.non_field_errors }}</div>
+                    {% endif %}
+
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Nom complet">
+                            {{ contact_form.name }}
+                            {{ contact_form.name.errors }}
                         </div>
-
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Email">
+                            {{ contact_form.email }}
+                            {{ contact_form.email.errors }}
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Téléphone">
+                            {{ contact_form.phone }}
+                            {{ contact_form.phone.errors }}
                         </div>
-
                         <div class="form-group">
-                            <select name="event_type">
-                                <option value="">Type d’événement</option>
-                                <option value="mariage">Mariage</option>
-                                <option value="anniversaire">Anniversaire</option>
-                                <option value="comite">Comité des fêtes</option>
-                                <option value="restaurant">Restaurant / bar</option>
-                                <option value="soiree-privee">Soirée privée</option>
-                                <option value="autre">Autre</option>
-                            </select>
+                            {{ contact_form.event_type }}
+                            {{ contact_form.event_type.errors }}
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="date" name="event_date">
+                            {{ contact_form.event_date }}
+                            {{ contact_form.event_date.errors }}
                         </div>
-
                         <div class="form-group">
-                            <input type="text" name="location" placeholder="Lieu de l’événement">
+                            {{ contact_form.location }}
+                            {{ contact_form.location.errors }}
                         </div>
                     </div>
 
                     <div class="form-group full-width">
-                        <textarea name="message" placeholder="Votre message"></textarea>
+                        {{ contact_form.message }}
+                        {{ contact_form.message.errors }}
                     </div>
 
                     <div class="form-submit">
                         <button type="submit" class="btn-submit">
                             Envoyer ma demande
-                            <span>➤</span>
+                            <span>&#10148;</span>
                         </button>
                     </div>
                 </form>
-
             </div>
         </section>
-
-
     </main>
 
+    {{ testimonials_data|json_script:"testimonials-data" }}
     <script src="{% static 'js/main.js' %}"></script>
-
+    <script>
+        lucide.createIcons();
+    </script>
 {% endblock %}
-

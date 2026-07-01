@@ -1,6 +1,6 @@
 .section-hero  {
     min-height: clamp(560px, 70vh, 820px);
-    padding: 30px 60px;
+    padding: 30px 6%;
     background:
         linear-gradient(70deg, rgba(0,0,0,.95) 0%, rgba(0,0,0,.78) 30%, rgba(0,0,0,.25) 60%, rgba(0,0,0,.7) 100%),
         linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.85) 100%),
@@ -79,8 +79,7 @@
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
 
-    width: 100%;
-    max-width: 1200px;
+    width: min(1200px, 100%);
     margin: 60px auto 0;
 
     padding: 15px 30px;
@@ -191,7 +190,7 @@
     overflow: hidden;
 
     min-height: 360px;
-    padding: 60px;
+    padding: clamp(58px, 7vw, 86px) 6%;
 
     color: #ffffff;
 
@@ -222,21 +221,6 @@
   background: #c57912;
 }
 
-.hero-music__decor {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-
-  width: 34%;
-  height: 100%;
-
-  background: url("images/decor-guitare.svg") right bottom / contain no-repeat;
-  opacity: 0.18;
-
-  pointer-events: none;
-}
-
-
 /* =========================
    COLONNE IMAGE
 ========================= */
@@ -251,6 +235,7 @@
 
   width: 100%;
   max-width: 430px;
+  aspect-ratio: 4 / 3;
 
   border-radius: 4px;
   object-fit: cover;
@@ -342,20 +327,25 @@
     grid-template-columns: 1fr;
 
     gap: 36px;
-    padding: 60px;
   }
 
   .hero-music::before {
     left: 60px;
   }
 
-  .hero-music__decor {
-    width: 60%;
-    opacity: 0.1;
-  }
-
-
   .hero-music__content {
-    margin-top: 48px;
+    margin-top: 24px;
   }
+}
+
+@media (max-width: 700px) {
+    .hero-action {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 360px;
+    }
+
+    .hero-music__tape {
+        display: none;
+    }
 }

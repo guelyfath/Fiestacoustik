@@ -1,4 +1,5 @@
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -12,7 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fmbvzp+j!a&zr0((nhuqzm_j*^ay!(yosjed&q&e9f*3os(_6t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# En local, DEBUG reste actif par defaut pour servir facilement les assets.
+# En production, mettre DJANGO_DEBUG=False dans les variables d'environnement.
+DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = [
     'fiestacoustik.onrender.com',
@@ -97,9 +100,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
@@ -109,8 +112,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# WhiteNoise sert les fichiers collectes dans STATIC_ROOT en production.
+STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Charges les fichiers static en cherchant le dossier static dans tous les dossiers
 STATICFILES_DIRS = [
